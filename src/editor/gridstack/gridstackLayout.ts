@@ -246,7 +246,12 @@ export class GridStackLayout extends Layout {
   updateGridItem(id: string, info: DashboardCellView): void {
     const items = this._grid.getGridItems();
     const item = items?.find(value => value.gridstackNode?.id === id);
-    this._grid.update(item!, info.col, info.row, info.width, info.height);
+    this._grid.update(item!, {
+      x: info.row,
+      y: info.col,
+      w: info.width,
+      h: info.height
+    });
   }
 
   /**
